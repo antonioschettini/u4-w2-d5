@@ -56,5 +56,14 @@ public class Collezione {
                 .filter(giocoDaTavola -> giocoDaTavola.getNumeroGiocatori().equals(numeroGiocatori)).toList();
         // effettuo un fiilter per ogni giocodatavola prendine i giocatore e confronta se è uguale al numero interito
     }
-    
+
+    //Task5 rimuovi un elemento per codice id
+    public void rimuoviPerId(Long id) {
+        // uso il mio metodo cercaperid per trovarlo e nel caso per rimuoverlo
+        Gioco giocoDaRimuovere = cercaperId(id);// lo assegno ad una variabile che passero al remove
+        listaGiochi.remove(giocoDaRimuovere);
+        System.out.println("Gioco con l'id: " + id + " è stato rimosso");
+
+    }
+
 }
