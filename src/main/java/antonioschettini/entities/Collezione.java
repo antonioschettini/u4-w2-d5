@@ -1,5 +1,6 @@
 package antonioschettini.entities;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,6 +66,53 @@ public class Collezione {
         System.out.println("Gioco con l'id: " + id + " è stato rimosso");
     }
 
-    //Task6
+    //Task6 aggiornamento di un elemento tramite id
+    public void aggiornaGioco(Long id, String nuovoTitolo, LocalDate nuovaData, Double nuovoPrezzo) {
+        //ho già il metodo per cercare per id, lo utilizzo così nel caso non c'è un gioco ho già il controllo dell'errore
+        Gioco giocoDaModificare = cercaperId(id);
+
+        //Setter per sovrascrivere con i parametri forniti, ed ho già nei setter il controllo sui prezzi
+        giocoDaModificare.setTitolo(nuovoTitolo);
+        giocoDaModificare.setDataPubblicazione(nuovaData);
+        giocoDaModificare.setPrezzo(nuovoPrezzo);
+
+        System.out.println("Gioco con id: " + id + "Aggiornato");
+    }
+
+    //Task7 statistiche della collezione
+    public void stampaStatistiche() {
+        System.out.println("--Statistiche Collezione--");
+        // Controlli
+        // se la collezione è vuota stampo un messaggio di avvis
+        if (listaGiochi.isEmpty()) {
+            System.out.println("La collezione è vuota non sono disponibili statistiche");
+            return; // interrompo subito il metodo
+        }
+
+        // Conto quanti sono i videogiochi  e li assegno in una variabile per facilitare la stampa
+        long numeroViceogiochi = listaGiochi.stream()
+                .filter(gioco -> gioco instanceof Videogioco)
+                .count();
+
+        //conto i g da tavola e li assegno in una variabile per facilitare la stampa
+        long numeroGiochiTavola = listaGiochi.stream()
+                .filter(gioco -> gioco instanceof GiocoDaTavola)
+                .count();
+
+        System.out.println("Totale Videogiochi: " + numeroViceogiochi);
+        System.out.println("Totale Giochi da Tavola: " + numeroGiochiTavola);
+
+        // Gioco con il prezzo più alto
+        Gioco giocoPiuCaro = listaGiochi.stream()
+                .max((gioco1, gioco2) -> gioco1.getPrezzo().compareTo(gioco2.getPrezzo())).get();
+        System.out.println("Il gioco più costoso è: " + giocoPiuCaro.getTitolo() + "costo €: " + giocoPiuCaro.getPrezzo());
+
+        // Media prezzi
+        double mediaPrezzi = listaGiochi.stream()
+                .mapToDouble(gioco -> gioco.getPrezzo())
+                .average()
+                .getAsDouble();
+        System.out.println("La media dei prezzi è €; " + mediaPrezzi);
+    }
 
 }
