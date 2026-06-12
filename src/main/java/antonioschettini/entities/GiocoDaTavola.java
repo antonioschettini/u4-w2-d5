@@ -3,10 +3,11 @@ package antonioschettini.entities;
 import java.time.LocalDate;
 
 public class GiocoDaTavola extends Gioco {
+    //Attrbuti
     private Integer numeroGiocatori;
     private Integer durataPartita;
 
-
+    //Costruttori
     public GiocoDaTavola(String titolo, LocalDate dataPubblicazione, Double prezzo, Integer numeroGiocatori, Integer durataPartita) {
         super(titolo, dataPubblicazione, prezzo);
         this.durataPartita = durataPartita;
@@ -14,8 +15,6 @@ public class GiocoDaTavola extends Gioco {
             throw new IllegalArgumentException("Il numero di giocatori deve essere tra 2 e 10"); // utilizzo lo stesso controllo fatto per il prezzo
         }
         this.numeroGiocatori = numeroGiocatori;
-
-
     }
 
     public Integer getNumeroGiocatori() {
