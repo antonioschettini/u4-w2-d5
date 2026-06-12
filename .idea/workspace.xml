@@ -55,24 +55,85 @@
       <change afterPath="$PROJECT_DIR$/../u4-w2-d4/src/main/java/antonioschettini/entities/Order.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../u4-w2-d4/src/main/java/antonioschettini/entities/Product.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../u4-w2-d4/src/test/java/antonioschettini/ApplicationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/antonioschettini/Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/antonioschettini/ApplicationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="FormatOnSaveOptions">
     <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="5.155261027262274E-55" />
+      <entry key="MS500" value="1.450314169882232E-11" />
+      <entry key="S2" value="0.0028180326027463874" />
+      <entry key="S5" value="0.14248764096222669" />
+      <entry key="S10" value="0.5474333061635226" />
+      <entry key="S30" value="1.6346448091149162" />
+      <entry key="S60" value="3.0631783394716896" />
+      <entry key="M2" value="5.865136452725649" />
+      <entry key="M5" value="13.322499026250366" />
+      <entry key="M10" value="24.788980531282842" />
+      <entry key="M15" value="33.03818513598526" />
+      <entry key="M30" value="46.04261537234686" />
+      <entry key="H1" value="55.253067485263045" />
+      <entry key="H2" value="60.76654145233709" />
+      <entry key="H4" value="63.787244985078495" />
+      <entry key="D1" value="66.45065811686939" />
+      <entry key="W1" value="66.9211752431035" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0000000242070077" />
+      <entry key="S5" value="1.0008986431918916" />
+      <entry key="S10" value="1.0303189438826172" />
+      <entry key="S30" value="1.5640701128068901" />
+      <entry key="S60" value="3.2454935502224753" />
+      <entry key="M2" value="7.05971384033531" />
+      <entry key="M5" value="15.842440305836806" />
+      <entry key="M10" value="25.209604076610884" />
+      <entry key="M15" value="30.777999923516205" />
+      <entry key="M30" value="38.639832857146146" />
+      <entry key="H1" value="43.78406681242314" />
+      <entry key="H2" value="46.74314644272888" />
+      <entry key="H4" value="48.332292805277426" />
+      <entry key="D1" value="49.71640862076927" />
+      <entry key="W1" value="49.95934634293522" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.002064488360471445" />
+      <entry key="MS500" value="0.29037718298246273" />
+      <entry key="S2" value="0.7357631510310979" />
+      <entry key="S5" value="1.0026055355981238" />
+      <entry key="S10" value="1.4699999819507448" />
+      <entry key="S30" value="3.1306950745824693" />
+      <entry key="S60" value="6.2519764575182215" />
+      <entry key="M2" value="12.870134054263858" />
+      <entry key="M5" value="29.109702156591606" />
+      <entry key="M10" value="49.9472453018452" />
+      <entry key="M15" value="63.771524495571974" />
+      <entry key="M30" value="84.65237197655648" />
+      <entry key="H1" value="99.01947708396364" />
+      <entry key="H2" value="107.50009426804851" />
+      <entry key="H4" value="112.11453401091612" />
+      <entry key="D1" value="116.16620259506884" />
+      <entry key="W1" value="116.88039737859744" />
+    </decayedShown>
   </component>
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
@@ -82,30 +143,36 @@
   &quot;fromUser&quot;: false
 }</component>
   <component name="ProjectId" id="3F07CiwnruT24zvo38d40ujbTBZ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Application.executor&quot;: &quot;Run&quot;,
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Application.executor": "Run",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "rearrange.code.on.save": "true",
+    "settings.editor.selected.configurable": "actions.on.save",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -123,6 +190,7 @@
       <updated>1780326813778</updated>
       <workItem from="1781200016672" duration="97000" />
       <workItem from="1781203782700" duration="83000" />
+      <workItem from="1781249023986" duration="2018000" />
     </task>
     <servers />
   </component>
