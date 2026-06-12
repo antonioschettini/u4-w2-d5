@@ -53,13 +53,43 @@ public class Application {
                         System.out.println("Inserisci il titolo: ");
                         String titoloVidscelto = scanner.nextLine();
 
-                        System.out.println("Inserisci il prezzo ad esempio 49,99");
-                        double prezzoVidscelto = scanner.nextDouble();
-                        scanner.nextLine(); // pulisco la line<a
+                        //Richiesta prezzo per non tornare indietro per errore di digitazione
+                        double prezzoVidScelto = 0;
+                        while (true) {
+                            try {
+                                System.out.println("Inserisci il prezzo ad esempio 49,99");
+                                prezzoVidScelto = scanner.nextDouble();
+                                scanner.nextLine();
+                                if (prezzoVidScelto <= 0) {
+                                    System.out.println("Il prezzo non può essere 0");
+                                    continue;
+                                }
 
-                        System.out.println("Inserisci la durata in ore: ");
-                        int durataVidScelto = scanner.nextInt();
-                        scanner.nextLine();
+                                break; // se l'input è ok esco dal while
+                            } catch (InputMismatchException e) {
+                                System.out.println("Errore inserisci un numero decimale con la , valido per il prezzo");
+                                scanner.nextLine();
+                            }
+                        }
+
+                        //Durata videogioco
+                        int durataVidScelto = 0;
+                        while (true) {
+                            try {
+                                System.out.println("Inserisci la durata in ore: ");
+                                durataVidScelto = scanner.nextInt();
+                                scanner.nextLine();
+
+                                if (durataVidScelto <= 0) {
+                                    System.out.println("Errore la durata deve essere almeno di 1 ora");
+                                    continue;
+                                }
+                                break; // Usciamo dal loop locale!
+                            } catch (InputMismatchException e) {
+                                System.out.println("Errore, inserisci un numero intero per la durata");
+                                scanner.nextLine();
+                            }
+                        }
 
                         // provo ad inserire randomicamente uno tra gli enums scelti
                         // Piattaforme
@@ -73,7 +103,7 @@ public class Application {
                         Genere genereCasuale = tuttiIGeneri[indicePerGenereRandom]; // variabile da inserire nel costruttore
 
                         // Creo il videogioco in base ai valori inseriti
-                        Videogioco nuovoVideogioco = new Videogioco(titoloVidscelto, LocalDate.now(), prezzoVidscelto, piattaformaCasuale, durataVidScelto, genereCasuale);
+                        Videogioco nuovoVideogioco = new Videogioco(titoloVidscelto, LocalDate.now(), prezzoVidScelto, piattaformaCasuale, durataVidScelto, genereCasuale);
 
                         miaCollezione.aggiungiGioco(nuovoVideogioco);
                         break;
@@ -83,17 +113,59 @@ public class Application {
                         System.out.println("Inserisci il titolo: ");
                         String titoloTavScelto = scanner.nextLine();
 
-                        System.out.println("Inserisci il prezzo esempio 19,50");
-                        double prezzoTavScelto = scanner.nextDouble();
-                        scanner.nextLine();
+                        //Richiesta prezzo
+                        double prezzoTavScelto = 0;
+                        while (true) {
+                            try {
+                                System.out.println("Inserisci il prezzo esempio 19.50: ");
+                                prezzoTavScelto = scanner.nextDouble();
+                                scanner.nextLine();
+                                if (prezzoTavScelto <= 0) {
+                                    System.out.println("Il prezzo non può essere 0");
+                                    continue;
+                                }
+                                break;
+                            } catch (InputMismatchException e) {
+                                System.out.println("Errore Inserisci un numero decimale valido per il prezzo");
+                                scanner.nextLine();
+                            }
+                        }
 
-                        System.out.println("Inserisci il numero di giocatore da 2 a 10");
-                        int numGiocatoriScelto = scanner.nextInt();
-                        scanner.nextLine();
+                        //Richiesta num giocatori
+                        int numGiocatoriScelto = 0;
+                        while (true) {
+                            try {
+                                System.out.println("Inserisci il numero di giocatori da 2 a 10: ");
+                                numGiocatoriScelto = scanner.nextInt();
+                                scanner.nextLine();
+                                if (numGiocatoriScelto < 2 || numGiocatoriScelto > 10) {
+                                    System.out.println("Errore il numero di giocatori deve essere tra 2 e 10");
+                                    continue;
+                                }
+                                break;
+                            } catch (InputMismatchException e) {
+                                System.out.println("Errore: Inserisci un numero intero per i giocatori");
+                                scanner.nextLine();
+                            }
+                        }
 
-                        System.out.println("Inserisci la durata stimata della partita in minuti");
-                        int durataGiocoTav = scanner.nextInt();
-                        scanner.nextLine();
+                        //Richiesta durata tavolo
+                        int durataGiocoTav = 0;
+                        while (true) {
+                            try {
+                                System.out.println("Inserisci la durata stimata della partita in minuti: ");
+                                durataGiocoTav = scanner.nextInt();
+                                scanner.nextLine();
+                                if (durataGiocoTav <= 0) {
+                                    System.out.println("Errore la durata deve essere almeno di 1 minuto");
+                                    continue;
+                                }
+                                break;
+                            } catch (InputMismatchException e) {
+                                System.out.println("Errore Inserisci un numero intero per i minuti");
+                                scanner.nextLine();
+                            }
+                        }
 
                         // Creo il giocodatavola con i dati inseriti dall'utente
                         GiocoDaTavola nuovoGiocoTavolo = new GiocoDaTavola(titoloTavScelto, LocalDate.now(), prezzoTavScelto, numGiocatoriScelto, durataGiocoTav);
@@ -101,18 +173,38 @@ public class Application {
                         break;
 
                     case 3: //Task2 ricerca per id
-                        System.out.println("Inserisci l'id del gioco da cercare");
-                        long cercaId = scanner.nextLong();
-                        scanner.nextLine();
-
+                        //RichiestA id
+                        long cercaId = 0;
+                        while (true) {
+                            try {
+                                System.out.println("\nInserisci l'id del gioco da cercare: ");
+                                cercaId = scanner.nextLong();
+                                scanner.nextLine();
+                                break;
+                            } catch (InputMismatchException e) {
+                                System.out.println("Errore: L'id deve essere un numero intero!");
+                                scanner.nextLine();
+                            }
+                        }
                         Gioco giocoTrovato = miaCollezione.cercaperId(cercaId);
                         System.out.println("Il gioco ricercato è: " + giocoTrovato);
                         break;
 
                     case 4: //Task 3 ricerca per prezzo
-                        System.out.println("Inserisci un prezzo per vederne i gioche che costano meno del prezzo richiesto es meno di 19,99");
-                        double prezzoMassimo = scanner.nextDouble();
-                        scanner.nextLine();
+                        // Ricerca prezzo
+
+                        double prezzoMassimo = 0;
+                        while (true) {
+                            try {
+                                System.out.println("\nInserisci un prezzo massimo per vedere i giochi meno costosi: ");
+                                prezzoMassimo = scanner.nextDouble();
+                                scanner.nextLine();
+                                break;
+                            } catch (InputMismatchException e) {
+                                System.out.println("Errore: Inserisci un prezzo numerico valido");
+                                scanner.nextLine();
+                            }
+                        }
 
                         List<Gioco> giochiEconomici = miaCollezione.cercaPerPrezzoMenoCostosoDi(prezzoMassimo);
                         if (giochiEconomici.isEmpty()) {
@@ -124,9 +216,19 @@ public class Application {
                         break;
 
                     case 5: //Task 4 Ricerca per numero di giocatori
-                        System.out.println("Inserisci il numero di giocatori per cercare un gioco da tavola: ");
-                        int numGiocatoriCerca = scanner.nextInt();
-                        scanner.nextLine();
+                        //Richiesta giocatori
+                        int numGiocatoriCerca = 0;
+                        while (true) {
+                            try {
+                                System.out.println("\nInserisci il numero di giocatori per cercare un gioco da tavolo: ");
+                                numGiocatoriCerca = scanner.nextInt();
+                                scanner.nextLine();
+                                break;
+                            } catch (InputMismatchException e) {
+                                System.out.println("Errore: Inserisci un numero intero di giocatori");
+                                scanner.nextLine();
+                            }
+                        }
 
                         List<GiocoDaTavola> giochiNumRichiesto = miaCollezione.ricercaPerNumeroGiocatori(numGiocatoriCerca);
                         if (giochiNumRichiesto.isEmpty()) {
@@ -138,26 +240,60 @@ public class Application {
                         break;
 
                     case 6: //Task 5 Rimuovi per id
-                        System.out.println("Inserisci l'id del gioco da rimuovere, tips, verifica prima nella collezione azione 9 per essere sicuri dell id");
-                        long idRimuovere = scanner.nextLong();
-                        scanner.nextLine();
-
+                        // Richiesta id rimuovere
+                        long idRimuovere = 0;
+                        while (true) {
+                            try {
+                                System.out.println("\nInserisci l'id del gioco da rimuovere (azione 9 per controllarli): ");
+                                idRimuovere = scanner.nextLong();
+                                scanner.nextLine();
+                                break;
+                            } catch (InputMismatchException e) {
+                                System.out.println("Errore L'id deve essere un numero intero!");
+                                scanner.nextLine();
+                            }
+                        }
                         miaCollezione.rimuoviPerId(idRimuovere);
                         break;
 
                     case 7: //Task 6 aggiorna gioco
-                        System.out.println("Inserisci l'id del gioco che vuoi modificare/aggiornare (p.s ricorda l'azione 9 per verificare tutti gli id");
-                        long idAggiorna = scanner.nextLong();
-                        scanner.nextLine();
+                        //Richiesta id per aggiornare gioco
+                        long idAggiorna = 0;
+                        while (true) {
+                            try {
+                                System.out.println("\nInserisci l'id del gioco che vuoi modificare/aggiornare: ");
+                                idAggiorna = scanner.nextLong();
+                                scanner.nextLine();
+                                break;
+                            } catch (InputMismatchException e) {
+                                System.out.println("Errore: L'id deve essere un numero intero!");
+                                scanner.nextLine();
+                            }
+                        }
 
                         // Verifico prima se è esistente ed uso la mia cestione degli errori del metodo
                         miaCollezione.cercaperId(idAggiorna);
                         System.out.println("Inserisci un nuovo titolo: ");
                         String nuovoTitolo = scanner.nextLine();
 
-                        System.out.println("Inserisci il nuovo Prezzo");
-                        double nuovoPrezzo = scanner.nextDouble();
-                        scanner.nextLine();
+                        //Richiesta prezzo
+                        double nuovoPrezzo = 0;
+                        while (true) {
+                            try {
+                                System.out.println("Inserisci il nuovo Prezzo: ");
+                                nuovoPrezzo = scanner.nextDouble();
+                                scanner.nextLine();
+
+                                if (nuovoPrezzo <= 0) {
+                                    System.out.println("Il prezzo non può essere 0");
+                                    continue;
+                                }
+                                break;
+                            } catch (InputMismatchException e) {
+                                System.out.println("Errore Inserisci un prezzo numerico valido!");
+                                scanner.nextLine();
+                            }
+                        }
 
                         // aggiorno i dati
                         miaCollezione.aggiornaGioco(idAggiorna, nuovoTitolo, LocalDate.now(), nuovoPrezzo);
@@ -196,7 +332,7 @@ public class Application {
                 System.out.println("Errore di inserimento prezzo: " + e.getMessage());
 
             } catch (RuntimeException e) {
-                System.out.println("Errore: " + e.getMessage());
+                System.out.println("Errore generico: " + e.getMessage());
             }
         }
         scanner.close(); // chiudo lo scanner al termine del programma
