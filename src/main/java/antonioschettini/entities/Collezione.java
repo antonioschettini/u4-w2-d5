@@ -63,7 +63,8 @@ public class Collezione {
         Gioco giocoDaRimuovere = cercaperId(id);// lo assegno ad una variabile che passero al remove
         listaGiochi.remove(giocoDaRimuovere);
         System.out.println("Gioco con l'id: " + id + " è stato rimosso");
-
     }
+
+    //Task6
 
 }
