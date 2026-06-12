@@ -1,5 +1,8 @@
 package antonioschettini.entities;
 
+import antonioschettini.exceptions.ElementoDuplicatoException;
+import antonioschettini.exceptions.GiocoNonTrovatoException;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +17,16 @@ public class Collezione {
     }
 
     //Metodi
+
+    public void stampaTuttiGiochi() {
+        if (listaGiochi.isEmpty()) {
+            System.out.println("La collezione è vuota");
+            return;
+        }
+        System.out.println("Elenco giochi in collezione");
+        listaGiochi.forEach(System.out::println);
+    }
+
     //Task1, aggiunta di un elemento e non posso inserire un elemento con lo stesso id
     public void aggiungiGioco(Gioco nuovoGioco) {
         boolean idGiaEsistente = listaGiochi.stream() // apro lo stream
@@ -23,7 +36,7 @@ public class Collezione {
 
         //attivo i controlli se l'id è già esistente lancio l'errore
         if (idGiaEsistente) {
-            throw new IllegalArgumentException("Impossibile inserire, poichè esiste già un gioco con lo stesso id " + nuovoGioco.getIdGioco());
+            throw new ElementoDuplicatoException("Impossibile inserire, poichè esiste già un gioco con lo stesso id " + nuovoGioco.getIdGioco());
         }
         // se passa il controllo
         listaGiochi.add(nuovoGioco);
@@ -39,7 +52,7 @@ public class Collezione {
                 return gioco; //
             }
         }
-        throw new RuntimeException("Non ho trovato nessun gioco con ID: " + id);
+        throw new GiocoNonTrovatoException("Non ho trovato nessun gioco con ID: " + id);
     }
 
     //Task3 ricerca per prezzo, inferiore a quello fornito nel parametro del metodo
@@ -79,6 +92,7 @@ public class Collezione {
         System.out.println("Gioco con id: " + id + "Aggiornato");
     }
 
+
     //Task7 statistiche della collezione
     public void stampaStatistiche() {
         System.out.println("--Statistiche Collezione--");
@@ -115,4 +129,10 @@ public class Collezione {
         System.out.println("La media dei prezzi è €; " + mediaPrezzi);
     }
 
+    @Override
+    public String toString() {
+        return "Collezione{" +
+                "listaGiochi=" + listaGiochi +
+                '}';
+    }
 }

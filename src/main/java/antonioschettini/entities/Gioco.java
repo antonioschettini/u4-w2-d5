@@ -1,5 +1,7 @@
 package antonioschettini.entities;
 
+import antonioschettini.exceptions.PrezzoNonValidoException;
+
 import java.time.LocalDate;
 
 public abstract class Gioco {
@@ -17,7 +19,7 @@ public abstract class Gioco {
         this.titolo = titolo;
         this.dataPubblicazione = dataPubblicazione;
         if (prezzo <= 0) {
-            throw new IllegalArgumentException("Il prezzo deve essere maggiore di 0"); // utilizzo l'expection di default per gli argument per lanciare l'errore
+            throw new PrezzoNonValidoException("Il prezzo deve essere maggiore di 0"); // utilizzo l'expection di default per gli argument per lanciare l'errore
         }
         this.prezzo = prezzo;
     }
@@ -49,7 +51,7 @@ public abstract class Gioco {
     public void setPrezzo(Double prezzo) {
         // setto il controllo per <0 anche per il setter
         if (prezzo <= 0) {
-            throw new IllegalArgumentException("IL prezzo deve essere maggiore di 0");
+            throw new PrezzoNonValidoException("IL prezzo deve essere maggiore di 0");
         }
         this.prezzo = prezzo;
     }

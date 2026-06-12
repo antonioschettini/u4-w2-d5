@@ -1,5 +1,7 @@
 package antonioschettini.entities;
 
+import antonioschettini.exceptions.ValoriFuoriRangeException;
+
 import java.time.LocalDate;
 
 public class GiocoDaTavola extends Gioco {
@@ -10,9 +12,13 @@ public class GiocoDaTavola extends Gioco {
     //Costruttori
     public GiocoDaTavola(String titolo, LocalDate dataPubblicazione, Double prezzo, Integer numeroGiocatori, Integer durataPartita) {
         super(titolo, dataPubblicazione, prezzo);
+        if (durataPartita <= 0) {
+            throw new ValoriFuoriRangeException("La durata della partita deve essere almeno di 1 ora");
+        }
         this.durataPartita = durataPartita;
+
         if (numeroGiocatori < 2 || numeroGiocatori > 10) {
-            throw new IllegalArgumentException("Il numero di giocatori deve essere tra 2 e 10"); // utilizzo lo stesso controllo fatto per il prezzo
+            throw new ValoriFuoriRangeException("Il numero di giocatori deve essere tra 2 e 10"); // utilizzo lo stesso controllo fatto per il prezzo
         }
         this.numeroGiocatori = numeroGiocatori;
     }
@@ -23,7 +29,7 @@ public class GiocoDaTavola extends Gioco {
 
     public void setNumeroGiocatori(Integer numeroGiocatori) {
         if (numeroGiocatori < 2 || numeroGiocatori > 10) {
-            throw new IllegalArgumentException("Il numero di giocatori deve essere tra 2 e 10"); // utilizzo lo stesso controllo fatto per il prezzo anche nel setter
+            throw new ValoriFuoriRangeException("Il numero di giocatori deve essere tra 2 e 10"); // utilizzo lo stesso controllo fatto per il prezzo anche nel setter
         }
         this.numeroGiocatori = numeroGiocatori;
     }
@@ -33,14 +39,16 @@ public class GiocoDaTavola extends Gioco {
     }
 
     public void setDurataPartita(Integer durataPartita) {
+        if (durataPartita <= 0) {
+            throw new ValoriFuoriRangeException("La durata della partita deve essere almeno di 1 ora");
+        }
         this.durataPartita = durataPartita;
     }
 
     @Override
     public String toString() {
-        return "GiocoDaTavola{" +
-                "numeroGiocatori=" + numeroGiocatori +
-                ", durataPartita=" + durataPartita +
-                '}';
+        // prendi i dati come titolo id ecc dalla superclasse e ci aggiungo i dati del gioco tavolo
+        return super.toString() + " [GIOCO DA TAVOLO] Giocatori: " + numeroGiocatori +
+                " | Durata Partita: " + durataPartita + " min";
     }
 }
